@@ -1,0 +1,95 @@
+*{
+    padding:0px;
+    margin:0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background-color:#f7beff;;
+}
+@property --border-color{
+    initial-value: #000000 ;
+    syntax:"<color>";
+    inherits:false;
+}
+@property --linear-color1{
+    initial-value: #ff9090;
+    syntax:"<color>";
+    inherits: false;
+}
+@property --linear-color2{
+    initial-value: #ffd18d;
+    syntax:"<color>";
+    inherits: false;
+}
+
+@property --linear-color3{
+    initial-value: #AAA986;
+    syntax:"<color>";
+    inherits: false;
+}
+@property --linear-color4{
+    initial-value:#800080;
+    syntax:"<color>";
+    inherits: false;
+}
+@property --linear-color5{
+    initial-value: #fff;
+    syntax:"<color>";
+    inherits:false;
+}
+@property --angle{
+    initial-value: 50deg;
+    syntax:"<angle>";
+    inherits: false;
+}
+@keyframes example{
+    from{--angle:50deg;}
+    to{--angle:-180deg;}
+}
+.container{
+    height:100vh;
+    margin:5rem;
+    display: flex;
+    flex:0 0;
+    
+}
+main div.gradient{
+    width:15rem;
+    height:15rem;
+    border:1px solid var(--border-color);
+    border-radius: 5%;
+    box-sizing: border-box;
+    margin: 2rem;
+    
+}
+main div.linear-gradient{
+    background: repeating-linear-gradient(
+        var(--angle),
+        var(--linear-color1) 10px 20px,
+        var(--linear-color2) 20px 30px,
+        var(--linear-color3) 30px 40px,
+        var(--linear-color4) 40px 50px,
+        var(--linear-color2) 60px 70px,
+        var(--linear-color1) 70px 80px
+    );
+        animation: example 5s linear 2s;
+}
+
+main div.radial-gradient{
+    /* background: repeating-radial-gradient(purple, white 10%,yellow 10%); */
+    background: repeating-radial-gradient(
+       var(--linear-color4) 0%,
+       var(--linear-color5) 5%
+    );
+}
+main div.conic-gradient{
+    background: repeating-conic-gradient(
+        var(--linear-color4)0%,
+        var(--linear-color5)5%
+    );
+}
+@media screen and (min-width: 600px){
+    body{
+        background-color:#fff;
+    }
+}
